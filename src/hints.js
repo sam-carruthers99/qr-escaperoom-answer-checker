@@ -3,10 +3,12 @@ var hints = {
       "Find the correct color sequence on the chart, working backwards from END in order to find the start.", 
       "Use the color sequence from the chart to follow the path on the flow chart. Blue is the first color in the sequence.", 
       "The first section of the flow path spells out SIX based on the color sequence.",
+      "When following along a colored path, continue on the path until the color stops. It is not always just one space per color.",
       "The full color sequence is Blue, Purple, Red, Green, Purple, Green, Yellow, Green, Red, Orange, Green. This will spell out SIX-ZERO-ONE-FOUR when the color sequence is followed on the flow chart: 6014"],
     2 : [ 
       "Listening to the audio file from the QR code gives these words: Night, Player, Saber, Escort, Save, Danger, Fighter, Rock, and Trance. Fill these out on the top row of the sheets with bar graphs, from 1-9.", 
-      "Each word will rearrange to form a different word, based on the height of the bars, shortest to tallest.", 
+      "Each word along the top will rearrange to form a different word on the bottom.", 
+      "Rearrange the words based on the height of the bars, shortest to tallest.",
       "The first word rearranges to 'Thing'. When all words are rearranged, focus on just the letters with brackets beneath them in the bottom row.",
       "The words on the top row rearrange to these words on the bottom row: Thing, Replay, Bears, Sector, Vase, Garden, Freight, Cork, and Nectar. The bracketed letters from these words spell out THREE-SEVEN-EIGHT-ONE, 3781."],
     3 : [
@@ -14,14 +16,15 @@ var hints = {
       "The first pair is the circle on the outside and the small triangle inside. What do you get when you overlap the tiles?", 
       "Each pair of tiles, when overlapped, will create a number with the segments. In order of the clue, the pairs form the numbers for 5396."],
     4 : [
-      "Each of the ten small QR codes have a word. Use these words on the sheet with the red Xs.", 
+      "Each of the ten small QR codes have a word. Use these words on the sheet with the Xs and strings of letters.", 
       "Each small QR code has slightly different shapes in the corners. Match these to the same shapes on the sheet.", 
       "For each word you found, remove those words from the strings of letters in the group.", 
       "In the first string of letters, removing the words 'speaker', 'hat', and 'guitar' from 'ssphgueaaeikvteetanrr' leaves 'seven' as the only remaining letters. Doing this with the other strings of text gives the code 7149."],
     5 : [
-      "Each of the seven double sided letter tiles have at least one of the following characteristics: 'bold', 'italic', and 'lowercase'.", 
-      "Find which category in the venn diagram each letter falls into. There is only one letter per category.", 
-      "The first one, 's', has all three, so it is paired with the letter 'I'. Find all letter pairs from 1-7.", 
+      "Each of the seven double sided letter tiles have at least one of the following characteristics: 'bold', 'italics', and 'lowercase'.", 
+      "Find which category in the venn diagram each letter falls into. There is only one letter per category.",
+      "The back of the letters will give the order, from 1-7",
+      "The first letter, 's', has all three characteristics, so it is paired with the letter 'I', which gives 'SI' as the first pair.", 
       "After finding the category and letter pair for each tile from 1-7, it spells out SIX-ONE-TWO-EIGHT, 6128."],
     6 : [
       "Each of the seven QR codes with letter pairs has the sound of something in nature.", 
@@ -36,7 +39,8 @@ var hints = {
     8 : [
       "Each tile will have only one valid placement on the QR code grid.", 
       "The tile with the yellow line must go on the grid where the yellow line is. Find other locations on the grid where pieces must fit based on the color.", 
-      "When all pieces are placed, only one QR code is left uncovered. The code in the 4th row, 5th column."
+      "With the colorless version, there is only one spot where the tile with the xxxxxx line can go. Find the location of the other pieces based on this idea.",
+      "When all pieces are placed, only one QR code is left uncovered. The code in the 4th row, 5th column. Scanning this code will give the final code, 8532."
       ]
   }
 

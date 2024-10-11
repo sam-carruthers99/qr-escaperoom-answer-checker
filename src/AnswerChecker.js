@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './App.css';
 
 const { hints } = require('./hints.js')
-const correctAnswers = ["6014", "3781", "5396", "7149", "6128", "1649", "2853"];
-const correctAnswersText = ["six zero one four", "three seven eight one", "five three nine six", "seven one four nine", "six one two eight", "one six four nine", "two eight five three"]
+const correctAnswers = ["6014", "3781", "5396", "7149", "6128", "1649", "2853", "8532"];
+const correctAnswersText = ["six zero one four", "three seven eight one", "five three nine six", "seven one four nine", "six one two eight", "one six four nine", "two eight five three", "eight five three two"]
 const wrongResponse = ["Incorrect", "Wrong", "Nope", "Try Again", "That didn't work", "False", "Not Right"]
 
 const AnswerChecker = () => {
@@ -12,6 +12,7 @@ const AnswerChecker = () => {
   const [showHint, setShowHint] = useState(false); // when next puzzle or prev puzzle is pressed, we need to setShowHint(false) and setHintNum(0)
   const [hintNum, setHintNum] = useState(0);
   const [numOfHints, setNumOfHints] = useState(3);
+  const [showPopup, setShowPopup] = useState(true);
 
   const onNextPrevClicked = () => {
       setShowHint(false)
@@ -52,6 +53,7 @@ const AnswerChecker = () => {
     var lowercase = inputValue.toLowerCase()
     if (inputValue === correctAnswers[puzzleIndex] || lowercase === correctAnswersText[puzzleIndex]) {
       setIsCorrect(true);
+      setShowPopup(true); // will just be for last puzzle
     } else {
       setIsCorrect(false);
       var newText = wrongResponse[Math.floor(Math.random()*wrongResponse.length)];
@@ -90,15 +92,28 @@ const AnswerChecker = () => {
         <h1>Puzzle #{puzzleNumber}</h1>
         {isCorrect === true ? (
             <div>
-              {puzzleIndex === 3 ? (
+              {puzzleIndex === 3 ? ( 
                 <p>Correct! You may now enter the second room and access the contents of puzzle #{puzzleIndex + 2}</p>
               ) : (
-                <p>Correct! You may now access the contents of puzzle #{puzzleIndex + 2}</p>
+                puzzleIndex === 7 ? (
+                  <div>
+                    <p>Correct!</p>
+                    {showPopup &&
+                      <div className="popup-overlay">
+                          <div className="popup-content">
+                              <p>Congratulations, you escaped!</p>
+                              <button onClick={() => setShowPopup(false)}>Close</button> 
+                          </div>
+                      </div>
+                    }
+                  </div>
+                ) : (
+                  <p>Correct! You may now access the contents of puzzle #{puzzleIndex + 2}</p>
+                )
               )}
             </div>
         ) : (
             <div>
-            {puzzleIndex < correctAnswers.length ? (
                 <>
                 <input
                     type="text"
@@ -109,11 +124,6 @@ const AnswerChecker = () => {
                 <button onClick={checkAnswer}>Check Answer</button>
                 {isCorrect === false && <p className="wrong">{wrongText}</p>}
                 </>
-            ) : (
-                <>
-                <p>For the final puzzle, you will need to scan the correct QR code. Only one code is correct.</p>
-                </>
-            )}
             </div>
         )}
         </div>
